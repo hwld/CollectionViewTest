@@ -3,9 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewTest.Views.MainPage"
              Title="{Binding Title}">
-
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CollectionView Grid.Row="0" ItemsSource="{Binding Items}"
+                        ItemsLayout="{x:Static ListItemsLayout.HorizontalList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding}" BackgroundColor="Red" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Add" Command="{Binding AddItemCommand}" Grid.Row="1"/>
+        <Button Text="Delete" Command="{Binding DeleteItemCommand}" Grid.Row="2"/>
+    </Grid>
 </ContentPage>
