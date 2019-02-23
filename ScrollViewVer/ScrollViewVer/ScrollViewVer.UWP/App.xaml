@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="ScrollViewVer.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ScrollViewVer.UWP"
+    RequestedTheme="Light">
+
+</Application>

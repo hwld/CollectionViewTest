@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:ScrollViewVer.Behaviors"
+             x:Class="ScrollViewVer.Views.MainPage"
+             Title="{Binding Title}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollView Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout.Behaviors>
+                    <b:DynamicStackLayoutBehavior ItemsSource="{Binding Items}"/>
+                </StackLayout.Behaviors>
+            </StackLayout>
+        </ScrollView>
+        <Button Text="Add" Grid.Row="1" Command="{Binding AddItemCommand}"/>
+        <Button Text="Delete" Grid.Row="2" Command="{Binding DeleteItemCommand}"/>
+    </Grid>
+</ContentPage>
